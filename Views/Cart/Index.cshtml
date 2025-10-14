@@ -1,0 +1,48 @@
+@model List<MymvcApp.Models.CartItem> 
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+<h2> Gio hang </h2>
+@if (Model.Count == 0)
+{
+    <p>Khong co san pham trong gio hang.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>San pham</th>
+                <th>So luong</th>
+                <th>Gia</th>
+                <th>Tong cong</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody> 
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice.ToString("c")</td>
+                    <td>@(item.UnitPrice* item.Quantity).ToString("c")</td>
+                    <td>
+                        <form asp-action="RemoveFromCart" method="post">
+                            <input type="hidden" name="productId" value="@item.ProductId" />
+                            <button type="submit" class="btn btn-danger">Xoa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right"><strong>Tong cong:</strong></td>
+                <td colspan="2">@Model.Sum(i => i.UnitPrice * i.Quantity).ToString("c")</td>
+            </tr>
+        </tfoot>
+    </table>
+    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Tiep tuc mua sam</a>
+    <a asp-controller="Order" asp-action="Create" class="btn btn-success">Dat hang</a>
+}

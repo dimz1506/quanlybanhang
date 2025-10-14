@@ -1,0 +1,25 @@
+@model MymvcApp.Models.Product
+@{
+    ViewData["Title"] = "Product Details";
+}
+<h2> Thong tin san pham</h2>
+<div class="product-detail">
+    <div class="product-image">
+        <img src="@Model.ImageUrl" alt="@Model.Name" />
+    </div>
+    <div class="product-infor">
+        <h3 class="product-name">@Model.Name</h3>
+        <p class="product-price">@Model.Price.ToString("c")</p>
+        <p class="product-id">Product ID: @Model.Id</p>
+        <p class="product-description">@Model.Description</p>
+         <p class="product-category">Category: @Model.Category?.Name</p>
+         <p class="product-createdat">Created At: @Model.CreatedAt.ToString("g")</p>
+        <form asp-controller="Cart" asp-action="AddToCart" method="post">
+            <input type="hidden" name="productId" value="@Model.Id" />
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
+    </div>
+    <p>
+         <a asp-action="Index" class="btn btn-secondary">Back to Product List</a>
+         
+    </p>

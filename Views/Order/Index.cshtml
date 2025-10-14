@@ -1,0 +1,38 @@
+@model List<MymvcApp.Models.Order>
+@{
+    ViewData["Title"] = "Order Details";
+}
+    <h3>Chi tiet don hang</h3>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Ma don</th>
+                <th>Khach hang</th>
+                <th>Email</th>
+                <th>Dia chi</th>
+                <th>Ngay dat</th>
+                <th>Tong cong</th>
+                <th>Chi tiet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.CustomerName</td>
+                    <td>@item.CustomerEmail</td>
+                    <td>@item.ShippingAddress</td>
+                    <td>@item.OrderDate.ToString("g")</td>
+                    <td>@item.TotalAmount.ToString("c")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+         
+        </tbody>
+     
+    </table>
+
+<a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back to Product List</a>

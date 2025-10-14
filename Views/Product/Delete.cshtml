@@ -1,0 +1,45 @@
+@model MymvcApp.Models.Product
+@{
+    ViewData["Title"] = "Delete Product";
+}
+<h2> Xóa sản phẩm</h2>
+<form asp-action="delete" method="post" enctype="multipart/form-data">
+         <div class="form-group">
+                  <input type="hidden" asp-for="@Model.Id" />
+                  <label asp-for="@Model.Name" class="control-label">Product Name</label>
+                  <input asp-for="@Model.Name" class="form-control" readonly />
+                  <span asp-validation-for="@Model.Name" class="text-danger"></span>
+         </div>
+         <div class ="form-group">
+                  <label asp-for="@Model.Description" class="control-label">Product Description</label>
+                  <input asp-for="@Model.Description" class="form-control" readonly />
+                  <span asp-validation-for="@Model.Description" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+                  <label asp-for="@Model.Price" class="control-label">Product Price</label>
+                  <input asp-for="@Model.Price" class="form-control" readonly />
+                  <span asp-validation-for="@Model.Price" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+                  <label asp-for="@Model.CategoryId" class="control-label">Category</label>
+                  <input asp-for="@Model.CategoryId" class="form-control" readonly />
+                  <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+         </div>
+        
+         <div class="form-group">
+                  <label class="control-label">Current Image</label>
+                  </br />
+                  @if (!string.IsNullOrEmpty(Model.ImageUrl)){
+                           <div class="mb-3">
+                                    <img src="@Model.ImageUrl" alt="Product Image" width="150" />
+                           </div>
+                  }
+                  else{
+                           <span>No image available</span>
+                  }
+                  </div>
+         <div class="form-group">
+                  <input type="submit" value="Delete" class="btn btn-danger" />
+                  <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+         </div>
+</form>

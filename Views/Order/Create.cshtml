@@ -1,0 +1,57 @@
+@model MymvcApp.Models.ViewModels.OrderCreateVm
+@{
+    ViewData["Title"] = "Create Order";
+}
+<h2> Thong tin dat hang</h2>
+<form asp-action="Create" method="post">
+         <div class="form-group">
+             <label asp-for="CustomerName"></label>
+             <input asp-for="CustomerName" class="form-control" />
+             <span asp-validation-for="CustomerName" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+             <label asp-for="CustomerEmail"></label>
+             <input asp-for="CustomerEmail" class="form-control" />
+             <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+             <label asp-for="ShippingAddress"></label>
+             <input asp-for="ShippingAddress" class="form-control" />
+             <span asp-validation-for="ShippingAddress" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+             <label asp-for="PhoneNumber"></label>
+             <input asp-for="PhoneNumber" class="form-control" />
+             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+         </div>
+         
+         <h4> San pham trong gio hang</h4>
+         <table class="table">
+                  <thead>
+                      <tr>
+                          <th>San pham</th>
+                          <th>So luong</th>
+                          <th>Gia</th>
+                          <th>Tong cong</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                           @foreach(var item in Model.CartItems){
+                                    <tr>
+                                             <td>@item.ProductName</td>
+                                             <td>@item.Quantity</td>
+                                             <td>@item.UnitPrice.ToString("c")</td>
+                                             <td>@(item.UnitPrice * item.Quantity).ToString("c")</td>
+                                    </tr>
+                           }
+                  </tbody>
+                  <tfoot>
+                           <td colspan="3" class="text-right"><strong>Tong cong:</strong></td>
+                           <td colspan="1">@Model.CartItems.Sum(i => i.UnitPrice * i.Quantity).ToString("c")</td>
+                  </tfoot>
+         </table>
+
+         <button type="submit" class="btn btn-primary">Dat hang</button>
+         <a asp-controller="Cart" asp-action="Index" class="btn btn-secondary">Back to Cart</a>
+
+</form>

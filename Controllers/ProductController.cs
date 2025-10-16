@@ -16,52 +16,54 @@ namespace MymvcApp.Controllers
                            _context = context;
                            _webHostEnvironment = webHostEnvironment;
                   }
-      
 
-                  //get : products
+
+      //get : products
+                  [AllowAnonymous]
                   public async Task<IActionResult> Index(string searchString)
-                  {
-                           var products = _context.Products.Include(p => p.Category).AsQueryable();
+      {
+         var products = _context.Products.Include(p => p.Category).AsQueryable();
 
-                           //tim kiem
-                           if (!string.IsNullOrEmpty(searchString))
-                           {
-                                    products = products.Where(p => p.Name.Contains(searchString));
-                           }
+         //tim kiem
+         if (!string.IsNullOrEmpty(searchString))
+         {
+            products = products.Where(p => p.Name.Contains(searchString));
+         }
 
-                           ViewBag.SearchString = searchString;
-                           return View(await products.ToListAsync());
+         ViewBag.SearchString = searchString;
+         return View(await products.ToListAsync());
 
-                  }
+      }
 
-                  //get: products/details
+      //get: products/details
+                  [AllowAnonymous]
                   public async Task<IActionResult> Details(int? id)
-                  {
-                           if (id == null || _context.Products == null)
-                           {
-                                    return NotFound();
-                           }
+      {
+         if (id == null || _context.Products == null)
+         {
+            return NotFound();
+         }
 
-                           var product = await _context.Products
-                                    .Include(p => p.Category)
-                                    .FirstOrDefaultAsync(m => m.Id == id);
-                           if (product == null)
-                           {
-                                    return NotFound();
-                           }
+         var product = await _context.Products
+                  .Include(p => p.Category)
+                  .FirstOrDefaultAsync(m => m.Id == id);
+         if (product == null)
+         {
+            return NotFound();
+         }
 
-                           return View(product);
-                  }
+         return View(product);
+      }
 
                   //get:products/create
-               //   [Authorize(Roles = "Admin")]
+                  [Authorize(Roles = "Admin")]
                   [HttpGet]
                   public IActionResult Create()
                   {
                            ViewBag.Categories = _context.Categories.ToList();
                            return View();
                   }
-               //   [Authorize(Roles = "Admin")]
+                  [Authorize(Roles = "Admin")]
                   [HttpPost]
                   [ValidateAntiForgeryToken]
                   public async Task<IActionResult> Create(ProductCreateVm vm)
@@ -112,7 +114,7 @@ namespace MymvcApp.Controllers
                   }
 
       //get: products/edit
-      //   [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
       [HttpGet]
 
       public async Task<IActionResult> Edit(int? id)
@@ -200,7 +202,7 @@ namespace MymvcApp.Controllers
       }
 
                   //get: products/delete
-               //   [Authorize(Roles = "Admin")]
+                 [Authorize(Roles = "Admin")]
                   [HttpGet]
                   public async Task<IActionResult> Delete(int? id)
                   {
@@ -220,7 +222,7 @@ namespace MymvcApp.Controllers
                            return View(product);
                   }
 
-                //  [Authorize(Roles = "Admin")]
+                  [Authorize(Roles = "Admin")]
                   [HttpPost, ActionName("Delete")]
                   [ValidateAntiForgeryToken]
                   public async Task<IActionResult> DeleteConfirmed(int id)

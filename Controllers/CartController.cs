@@ -4,6 +4,7 @@ using MymvcApp.Models;
 using Microsoft.EntityFrameworkCore;
 using MymvcApp.Data;
 using Microsoft.VisualBasic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MymvcApp.Controllers
 {
@@ -16,6 +17,7 @@ namespace MymvcApp.Controllers
                   }
                   //hien thi gio hang
                   [HttpGet]
+                
                   public IActionResult Index()
                   {
                            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
@@ -28,6 +30,7 @@ namespace MymvcApp.Controllers
 
                   //them san pham vao gio hang
                   [HttpPost]
+                  [Authorize]
                   public async Task<IActionResult> AddToCart(int productId)
                   {
                            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId);
@@ -66,6 +69,7 @@ namespace MymvcApp.Controllers
 
                   //xoa san pham khoi gio
                   [HttpPost]
+                  [Authorize]
                   public IActionResult RemoveFromCart(int productId)
                   {
                            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
@@ -83,5 +87,33 @@ namespace MymvcApp.Controllers
 
                            return RedirectToAction("Index");
                   }
+
+
+                  [HttpPost]
+                  [Authorize]
+                  public async Task<IActionResult> UpdateCart(int productId, int quantity)
+                  {
+                           var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+                           var cartItem = cart.FirstOrDefault(c => c.ProductId == productId);
+
+                           if (cartItem != null)
+                           {
+                                    if (quantity > 0)
+                                    {
+                                             cartItem.Quantity = quantity;
+                                    }
+                                    else
+                                    {
+                                             cart.Remove(cartItem);
+                                    }
+                                    HttpContext.Session.SetObjectAsJson("Cart", cart);
+                           }
+
+                           //tinh tien lai 
+                           var totalPrice = cart.Sum(c => c.Quantity * c.UnitPrice);
+                           return Json(new { success = true, totalItems = cart.Sum(c => c.Quantity), totalPrice = totalPrice, itemTotal = cartItem != null ? cartItem.Quantity * cartItem.UnitPrice : 0 });
+                  }
+
+                  
          }
 }

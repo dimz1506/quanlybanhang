@@ -301,3 +301,5 @@ D:\project by my\MymvcApp\obj\Debug\net9.0\MymvcApp.pdb
 D:\project by my\MymvcApp\obj\Debug\net9.0\MymvcApp.genruntimeconfig.cache
 D:\project by my\MymvcApp\obj\Debug\net9.0\ref\MymvcApp.dll
 D:\project by my\MymvcApp\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\project by my\MymvcApp\obj\Debug\net9.0\MymvcApp.sourcelink.json
+D:\project by my\MymvcApp\obj\Debug\net9.0\compressed\y4v65xip57-xknkvoxzh8.gz

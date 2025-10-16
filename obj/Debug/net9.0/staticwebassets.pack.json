@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\0b62deda-e77b-407f-9cb4-e854b9a080a4.png",
+      "PackagePath": "staticwebassets\\images\\0b62deda-e77b-407f-9cb4-e854b9a080a4.png"
+    },
+    {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\116d4037-3b6b-4725-9c10-b6cf40b14b0a.png",
       "PackagePath": "staticwebassets\\images\\116d4037-3b6b-4725-9c10-b6cf40b14b0a.png"
     },
@@ -25,8 +29,20 @@
       "PackagePath": "staticwebassets\\images\\267c03aa-bb9d-4dd9-99db-f71d3ecfb08c.png"
     },
     {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\290533a1-74a3-472a-a91a-2888ce9bd73d.png",
+      "PackagePath": "staticwebassets\\images\\290533a1-74a3-472a-a91a-2888ce9bd73d.png"
+    },
+    {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\355d17e9-d233-4d50-8d24-18ced89e266a.png",
       "PackagePath": "staticwebassets\\images\\355d17e9-d233-4d50-8d24-18ced89e266a.png"
+    },
+    {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\458c403f-b663-4a44-aa7d-24292ba924fe.png",
+      "PackagePath": "staticwebassets\\images\\458c403f-b663-4a44-aa7d-24292ba924fe.png"
+    },
+    {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\626b7adc-371d-44b0-91a6-f53bf6c4f269.html",
+      "PackagePath": "staticwebassets\\images\\626b7adc-371d-44b0-91a6-f53bf6c4f269.html"
     },
     {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\65bb3c5d-a1cb-4bc2-9953-2fd04d731782.png",
@@ -45,16 +61,40 @@
       "PackagePath": "staticwebassets\\images\\78eeb4bd-7f00-458f-a8bf-0cc7f2db6f11.png"
     },
     {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\83c44137-ea09-4118-92bb-224d1cfa7fcf.png",
+      "PackagePath": "staticwebassets\\images\\83c44137-ea09-4118-92bb-224d1cfa7fcf.png"
+    },
+    {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\921e6d37-42f5-4ca0-ba9f-5fa5c666133a.png",
       "PackagePath": "staticwebassets\\images\\921e6d37-42f5-4ca0-ba9f-5fa5c666133a.png"
+    },
+    {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\947c6e8c-e98b-4b4e-9eb6-dcf39b70f6b5.png",
+      "PackagePath": "staticwebassets\\images\\947c6e8c-e98b-4b4e-9eb6-dcf39b70f6b5.png"
+    },
+    {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\9945a8f2-8190-4839-a937-156ae79b56b9.png",
+      "PackagePath": "staticwebassets\\images\\9945a8f2-8190-4839-a937-156ae79b56b9.png"
+    },
+    {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\9c34bf30-6292-44aa-b0d3-69def9749d53.png",
+      "PackagePath": "staticwebassets\\images\\9c34bf30-6292-44aa-b0d3-69def9749d53.png"
     },
     {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\c85d4ee1-6c97-42c1-948a-54c130db348a.png",
       "PackagePath": "staticwebassets\\images\\c85d4ee1-6c97-42c1-948a-54c130db348a.png"
     },
     {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\d3e28b82-1a22-4f96-87a6-f16d17a29bb8.png",
+      "PackagePath": "staticwebassets\\images\\d3e28b82-1a22-4f96-87a6-f16d17a29bb8.png"
+    },
+    {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\de070849-77c3-437d-bf76-f1ae703f6094.png",
       "PackagePath": "staticwebassets\\images\\de070849-77c3-437d-bf76-f1ae703f6094.png"
+    },
+    {
+      "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\e25baf3b-7936-4b9c-a3c7-89b2fc8e4985.png",
+      "PackagePath": "staticwebassets\\images\\e25baf3b-7936-4b9c-a3c7-89b2fc8e4985.png"
     },
     {
       "Id": "D:\\project by my\\MymvcApp\\wwwroot\\images\\fb9ece7d-5dc2-4098-bea0-d9c41b4a1c02.png",

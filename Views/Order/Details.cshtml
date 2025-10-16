@@ -1,0 +1,47 @@
+@model MymvcApp.Models.Order
+@{
+    ViewData["Title"] = "Order Details";
+}
+<h2>Chi tiet don hang</h2>
+<div>
+         <form asp-action="details" method="get">
+                  <div class ="form-group">
+                           <label asp-for="@Model.Id" class="control-label">Ma don hang</label>
+                           <input asp-for="@Model.Id" class="form-control" readonly />
+                           <span asp-validation-for="@Model.Id" class="text-danger"></span>
+                  </div>
+                  <div class="form-group">
+                           <label asp-for="@Model.CustomerName" class="control-label">Ten khach hang</label>
+                           <input asp-for="@Model.CustomerName" class="form-control" readonly />
+                           <span asp-validation-for="@Model.CustomerName" class="text-danger"></span>
+                  </div>
+                  <div class="form-group">
+                           <label asp-for="@Model.PhoneNumber" class="controlle-label">So dien thoai khach hang</label>
+                           <input asp-for="@Model.PhoneNumber" class="form-control" readonly />
+                           <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+                  </div>
+                  <div class ="form-group">
+                           <label asp-for="@Model.CustomerEmail" class="control-label">Email khach hang</label>
+                           <input asp-for="@Model.CustomerEmail" class="form-control" readonly />
+                           <span asp-validation-for="@Model.CustomerEmail" class="text-danger"></span>
+                  </div>
+                  <div class ="form-group">
+                           <label asp-for="@Model.ShippingAddress" class="control-label">Dia chi giao hang</label>
+                           <input asp-for="@Model.ShippingAddress" class="form-control" readonly />
+                           <span asp-validation-for="@Model.ShippingAddress" class="text-danger"></span>
+                  </div>
+                  <div class = "form-group">
+                           <label asp-for="@Model.OrderDate" class="control-label">Ngay dat hang</label>
+                           <input asp-for="@Model.OrderDate" class="form-control" readonly />
+                           <span asp-validation-for="@Model.OrderDate" class="text-danger"></span>
+                  </div>
+                  <div class = "form-group">
+                           <label asp-for="@Model.TotalAmount" class="control-label">Tong tien</label>
+                           <input asp-for="@Model.TotalAmount" class="form-control" readonly />
+                           <span asp-validation-for="@Model.TotalAmount" class="text-danger"></span>
+                  </div>
+         </form>
+         <p>
+                  <a asp-action="Index" class="btn btn-secondary">Back to Order List</a>
+         </p>
+</div>

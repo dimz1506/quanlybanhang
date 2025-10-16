@@ -38,6 +38,18 @@
                         <li class="nac-item">
                             <a class="nav-link text=dark" asp-area="" asp-controller="Order" asp-action="Index">Order</a>
                         </li>
+                        <li class="nac-item">
+                            <a class="nav-link text=dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nac-item">
+                            <a class="nav-link text=dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                        @if(User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

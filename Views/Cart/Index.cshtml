@@ -13,28 +13,39 @@ else
         <thead>
             <tr>
                 <th>San pham</th>
-                <th>So luong</th>
                 <th>Gia</th>
+                <th>So luong</th> 
                 <th>Tong cong</th>
+                <th>Trang thai</th>
                 <th></th>
             </tr>
         </thead>
         <tbody> 
             @foreach (var item in Model)
             {
-                <tr>
+                <tr data-product-id="@item.ProductId">
                     <td>@item.ProductName</td>
-                    <td>@item.Quantity</td>
+                    
                     <td>@item.UnitPrice.ToString("c")</td>
-                    <td>@(item.UnitPrice* item.Quantity).ToString("c")</td>
+                    <td class="d-flex align-items-center">
+                       <button class="btn btn-outline-secondary btn-sm minus-btn">-</button>
+                       <input type="text" class="form-control mx-2 quantity-input" value="@item.Quantity" min="1" style="width: 60px; text-align: center;" readonly />
+                       <button class="btn btn-outline-secondary btn-sm plus-btn">+</button>
+                    </td>
+                    <td>@(item.UnitPrice* item.Quantity)</td>
                     <td>
                         <form asp-action="RemoveFromCart" method="post">
                             <input type="hidden" name="productId" value="@item.ProductId" />
                             <button type="submit" class="btn btn-danger">Xoa</button>
                         </form>
+                       
                     </td>
+                    
                 </tr>
             }
+         
+}
+
         </tbody>
         <tfoot>
             <tr>
@@ -42,7 +53,56 @@ else
                 <td colspan="2">@Model.Sum(i => i.UnitPrice * i.Quantity).ToString("c")</td>
             </tr>
         </tfoot>
+           @section Scripts {
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const rows = document.querySelectorAll('tr[data-product-id]');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    rows.forEach(row => {
+        const productId = row.dataset.productId;
+        const minusBtn = row.querySelector('.minus-btn');
+        const plusBtn = row.querySelector('.plus-btn');
+        const qtyInput = row.querySelector('.quantity-input');
+        const itemTotalEl = row.querySelector('.item-total');
+
+        // Hàm gọi API cập nhật giỏ hàng
+        const updateCart = (newQty) => {
+            fetch('/Cart/UpdateCart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ productId: parseInt(productId), quantity: parseInt(newQty) })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    qtyInput.value = newQty;
+                    itemTotalEl.textContent = data.itemTotal.toLocaleString('vi-VN', {style:'currency', currency:'VND'});
+                    cartTotalEl.textContent = data.totalPrice.toLocaleString('vi-VN', {style:'currency', currency:'VND'});
+                }
+            });
+        };
+
+        // Nút tăng
+        plusBtn.addEventListener('click', () => {
+            let newQty = parseInt(qtyInput.value) + 1;
+            updateCart(newQty);
+        });
+
+        // Nút giảm
+        minusBtn.addEventListener('click', () => {
+            let newQty = Math.max(1, parseInt(qtyInput.value) - 1);
+            updateCart(newQty);
+        });
+    });
+});
+</script>
+}
     </table>
     <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Tiep tuc mua sam</a>
     <a asp-controller="Order" asp-action="Create" class="btn btn-success">Dat hang</a>
-}
+    }
+
+

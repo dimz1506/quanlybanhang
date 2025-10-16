@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MymvcApp.Data;
@@ -22,12 +23,14 @@ namespace MymvcApp.Controllers
 
                   //hien thi trang tao danh muc san pham
                   [HttpGet]
+                  [Authorize(Roles = "Admin")]
                   public IActionResult Create()
                   {
                            return View();
                   }
 
                   [HttpPost]
+                  [Authorize(Roles = "Admin")]
                   public async Task<IActionResult> Create(Category c)
                   {
                            _context.Categories.Add(c);
@@ -37,9 +40,10 @@ namespace MymvcApp.Controllers
 
                   //hien thi trang sua danh muc
                   [HttpGet]
+                  [Authorize(Roles = "Admin")]
                   public async Task<IActionResult> Edit(int id)
                   {
-                           var category =await _context.Categories.FindAsync(id);
+                           var category = await _context.Categories.FindAsync(id);
                            if (category == null)
                            {
                                     return NotFound();
@@ -48,6 +52,7 @@ namespace MymvcApp.Controllers
                   }
 
                   [HttpPost]
+                  [Authorize(Roles = "Admin")]
                   public async Task<IActionResult> Edit(Category c)
                   {
                            _context.Categories.Update(c);
@@ -56,9 +61,10 @@ namespace MymvcApp.Controllers
                   }
 
                   [HttpGet]
+                  [Authorize(Roles = "Admin")]
                   public async Task<IActionResult> Delete(int id)
                   {
-                           var category =await _context.Categories.FindAsync(id);
+                           var category = await _context.Categories.FindAsync(id);
                            if (category == null)
                            {
                                     return NotFound();
@@ -69,6 +75,7 @@ namespace MymvcApp.Controllers
                   [HttpPost]
                   [ActionName("Delete")]
                   [ValidateAntiForgeryToken]
+                  [Authorize(Roles = "Admin")]
                   public async Task<IActionResult> DeleteConfirmed(int id)
                   {
                            var category = await _context.Categories.FindAsync(id);
@@ -83,9 +90,10 @@ namespace MymvcApp.Controllers
 
                   //xem danh muc chi tiet
                   [HttpGet]
+                  [Authorize(Roles = "Admin,User")]
                   public async Task<IActionResult> Details(int id)
                   {
-                           var category =await _context.Categories.FindAsync(id);
+                           var category = await _context.Categories.FindAsync(id);
                            if (category == null)
                            {
                                     return NotFound();

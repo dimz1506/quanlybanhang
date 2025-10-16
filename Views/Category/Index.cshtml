@@ -2,6 +2,9 @@
 @{
          ViewData["Title"] = "Category Index";
 }
+@if(User.IsInRole("Admin")){
+         <a asp-action="Create" class="btn btn-success mb-3">Create New Category</a>
+}
 <h2> DANH MỤC SẢN PHẨM</h2>
 <table class="table">
          <thead>

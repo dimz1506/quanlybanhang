@@ -9,6 +9,7 @@ namespace MymvcApp.Models
          {
                   public int Id { get; set; }
                   public string UserId { get; set; } = string.Empty;
+                  public ApplicationUser User { get; set; } = null!;
                   public string ShippingAddress { get; set; } = string.Empty;
                   public string PhoneNumber { get; set; } = string.Empty;
                   [Required]

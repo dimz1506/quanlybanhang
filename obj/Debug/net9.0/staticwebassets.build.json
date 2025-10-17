@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mSDRftQese7wsO349ecL2F7CTsJLkAOVvgNiRc/BxPk=",
+  "Hash": "TugdfOxy0QmTimaxzDnLnKYQo6P9vWd66fQY90f5qY0=",
   "Source": "MymvcApp",
   "BasePath": "_content/MymvcApp",
   "Mode": "Default",
@@ -4278,6 +4278,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\65bb3c5d-a1cb-4bc2-9953-2fd04d731782.png"
+    },
+    {
+      "Identity": "D:\\project by my\\MymvcApp\\wwwroot\\images\\6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.png",
+      "SourceId": "MymvcApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project by my\\MymvcApp\\wwwroot\\",
+      "BasePath": "_content/MymvcApp",
+      "RelativePath": "images/6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6tpf5ctddo",
+      "Integrity": "ahWmieX0K1UNpI6jtZeyu4uFLrzfnQ9J9YEWsJAnais=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.png"
     },
     {
       "Identity": "D:\\project by my\\MymvcApp\\wwwroot\\images\\6e168da2-3ad4-4736-96c2-68f718c8765f.png",
@@ -15997,6 +16018,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-ZITOFktKV3Q/Yf1So93fVVerY2vi80cM4fdm7x0fXMU="
+        }
+      ]
+    },
+    {
+      "Route": "images/6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.6tpf5ctddo.png",
+      "AssetFile": "D:\\project by my\\MymvcApp\\wwwroot\\images\\6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1608702"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ahWmieX0K1UNpI6jtZeyu4uFLrzfnQ9J9YEWsJAnais=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Oct 2025 03:41:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6tpf5ctddo"
+        },
+        {
+          "Name": "label",
+          "Value": "images/6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ahWmieX0K1UNpI6jtZeyu4uFLrzfnQ9J9YEWsJAnais="
+        }
+      ]
+    },
+    {
+      "Route": "images/6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.png",
+      "AssetFile": "D:\\project by my\\MymvcApp\\wwwroot\\images\\6bb7c7a2-5fe7-48b0-9261-4f612a4bea1f.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1608702"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ahWmieX0K1UNpI6jtZeyu4uFLrzfnQ9J9YEWsJAnais=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Oct 2025 03:41:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ahWmieX0K1UNpI6jtZeyu4uFLrzfnQ9J9YEWsJAnais="
         }
       ]
     },

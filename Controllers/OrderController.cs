@@ -24,19 +24,24 @@ namespace MymvcApp.Controllers
 
         //get: orders
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, User")]
         public async Task<IActionResult> Index()
         {
-            var orders = await _context.Orders
-                     .Include(o => o.OrderItems)
-                     .ThenInclude(oi => oi.Product)
-                     .ToListAsync();
+            var user = await _userManager.GetUserAsync(User);
+            IQueryable<Order> ordersQuery = _context.Orders
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product);
+            if(User.IsInRole("User"))
+            {
+                ordersQuery = ordersQuery.Where(o => o.UserId == user.Id);
+            }
+            var orders = await ordersQuery.ToListAsync();
             return View(orders); //=> List<Order>
         }
 
         //get: orders/details/5
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         public async Task<IActionResult> Details(int id)
         {
             var orders = await _context.Orders
@@ -47,6 +52,12 @@ namespace MymvcApp.Controllers
             {
                 return NotFound();
             }
+            var user = await _userManager.GetUserAsync(User);
+            if (User.IsInRole("User") && orders.UserId != user.Id)
+            {
+                return Forbid();
+            }
+            
             return View(orders);
         }
 
@@ -115,13 +126,6 @@ namespace MymvcApp.Controllers
                 return View(vm);
             }
 
-
-            // var user = await _userManager.GetUserAsync(User);
-            // if (user == null)
-            // {
-            //          return RedirectToAction("Login", "Account");
-            // }
-
             var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
             if (cart == null || !cart.Any())
             {
@@ -136,10 +140,11 @@ namespace MymvcApp.Controllers
                 }
             }
 
+            var user = await _userManager.GetUserAsync(User);
             //map tu viewmodel sang entity order
             var order = new Order
             {
-                //  UserId = user.Id,
+                UserId = user.Id,
                 CustomerName = vm.CustomerName,
                 CustomerEmail = vm.CustomerEmail,
                 PhoneNumber = vm.PhoneNumber,
